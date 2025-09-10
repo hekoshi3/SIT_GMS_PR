@@ -29,6 +29,14 @@ Ordinary Least Squares and Ridge Regression
 # Then, we split the data and target into training and test sets.
 from sklearn.datasets import load_diabetes
 from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LinearRegression
+from sklearn.metrics import mean_squared_error, r2_score
+import matplotlib.pyplot as plt
+import matplotlib.pyplot as plt
+import numpy as np
+from sklearn import linear_model
+
+print("All imports OK")
 
 X, y = load_diabetes(return_X_y=True)
 X = X[:, [2]]  # Use only one feature
@@ -41,7 +49,7 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=20, shuffle=
 # We create a linear regression model and fit it on the training data. Note that by
 # default, an intercept is added to the model. We can control this behavior by setting
 # the `fit_intercept` parameter.
-from sklearn.linear_model import LinearRegression
+
 
 regressor = LinearRegression().fit(X_train, y_train)
 
@@ -51,7 +59,6 @@ regressor = LinearRegression().fit(X_train, y_train)
 #
 # We evaluate the model's performance on the test set using the mean squared error
 # and the coefficient of determination.
-from sklearn.metrics import mean_squared_error, r2_score
 
 y_pred = regressor.predict(X_test)
 
@@ -63,7 +70,7 @@ print(f"Coefficient of determination: {r2_score(y_test, y_pred):.2f}")
 # --------------------
 #
 # Finally, we visualize the results on the train and test data.
-import matplotlib.pyplot as plt
+
 
 fig, ax = plt.subplots(ncols=2, figsize=(10, 5), sharex=True, sharey=True)
 
@@ -105,12 +112,6 @@ plt.show()
 # add small Gaussian noise to them and refit both OLS and Ridge. We plot
 # each new line to see how much OLS can jump around, whereas Ridge remains
 # more stable thanks to its penalty term.
-
-
-import matplotlib.pyplot as plt
-import numpy as np
-
-from sklearn import linear_model
 
 X_train = np.c_[0.5, 1].T
 y_train = [0.5, 1]
