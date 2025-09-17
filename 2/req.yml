@@ -1,11 +1,11 @@
-name: t2t_env
+name: t2_env
 channels:
   - defaults
 dependencies:
   - python=3.9
-  - numpy
-  - pandas
   - matplotlib
   - scikit-learn
+  - numpy
   - seaborn
-prefix: C:\Users\Heko\.conda\envs\t2t_env
+  - pandas
+prefix: C:\Users\Heko\.conda\envs\t2_env
